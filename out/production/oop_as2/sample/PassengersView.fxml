@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="472.0" prefWidth="891.0" style="-fx-background-color: #ffffff;" stylesheets="@sample.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PassengersViewController">
+   <children>
+      <VBox prefHeight="132.0" prefWidth="891.0" style="-fx-background-color: #3F51B5;">
+         <children>
+            <Label alignment="TOP_LEFT" prefHeight="53.0" prefWidth="385.0" style="-fx-text-fill: #FFFFFF;" text="Get a transit ticket">
+               <font>
+                  <Font size="36.0" />
+               </font>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </Label>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+               <children>
+                  <Line endX="100.0" startX="-100.0" stroke="#303f9f" strokeWidth="5.0" />
+                  <Label style="-fx-text-fill: #FFFFFF;" text="Step 1 of 3" />
+               </children>
+            </HBox>
+            <Label style="-fx-text-fill: #FFFFFF;" text="Info about travelling passengers:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </Label>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER_LEFT" spacing="10.0" />
+      <TableView fx:id="passengersTable" prefHeight="191.0" prefWidth="891.0">
+        <columns>
+          <TableColumn fx:id="firstNameColumn" prefWidth="311.0" text="First Name" />
+          <TableColumn fx:id="lastNameColumn" minWidth="0.0" prefWidth="357.0" text="Last Name" />
+            <TableColumn fx:id="categoryColumn" prefWidth="222.0" text="Category" />
+        </columns>
+      </TableView>
+      <GridPane hgap="10.0" prefHeight="110.0" prefWidth="549.0" vgap="15.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="452.0" minWidth="10.0" prefWidth="441.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="462.0" minWidth="10.0" prefWidth="440.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <TextField fx:id="firstNameTextField" promptText="First name">
+               <GridPane.margin>
+                  <Insets left="10.0" right="10.0" />
+               </GridPane.margin></TextField>
+            <TextField fx:id="lastNameTextField" prefHeight="31.0" prefWidth="712.0" promptText="Last name" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets left="10.0" right="10.0" />
+               </GridPane.margin></TextField>
+            <HBox alignment="CENTER" spacing="15.0" GridPane.rowIndex="1">
+               <children>
+                  <Label text="Age category:">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <VBox spacing="10.0">
+                     <children>
+                        <HBox spacing="10.0">
+                           <children>
+                              <RadioButton fx:id="childRadio" mnemonicParsing="false" text="Child" />
+                              <RadioButton fx:id="studentRadio" mnemonicParsing="false" text="Student" />
+                           </children>
+                        </HBox>
+                        <HBox spacing="10.0">
+                           <children>
+                              <RadioButton fx:id="adultRadio" mnemonicParsing="false" text="Adult" />
+                              <RadioButton fx:id="seniorRadio" mnemonicParsing="false" text="Senior" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="15.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#newPersonButtonPushed" text="Add passenger" />
+                  <Button mnemonicParsing="false" onAction="#deleteButtonPushed" text="Remove passenger" />
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </GridPane>
+      <HBox alignment="TOP_RIGHT" spacing="20.0">
+         <children>
+            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#goToNextStop" text="Next -&gt;" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>
